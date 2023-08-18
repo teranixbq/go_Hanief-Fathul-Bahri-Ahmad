@@ -18,7 +18,7 @@ func Asterik() {
 		for j := 0; j <= i; j++ {
 			fmt.Print("* ")
 		}
-		fmt.Println() // Tambahkan baris baru setelah mencetak bintang pada satu baris
+		fmt.Println() 
 	}
 	Footer()
 	Prioritas2()
