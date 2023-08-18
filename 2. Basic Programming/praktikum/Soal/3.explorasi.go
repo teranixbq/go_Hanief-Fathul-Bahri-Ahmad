@@ -24,9 +24,9 @@ func Explorasi() {
 
 	switch {
 	case strings.EqualFold(reverse, kata):
-		fmt.Printf("\"%s\" adalah Kata Palindrome\n", kata)
+		fmt.Println("\"" + kata + "\" adalah Kata Palindrome")
 	default:
-		fmt.Printf("\"%s\" Bukan Kata Palindrome\n", kata)
+		fmt.Println("\"" + kata + "\" Bukan Kata Palindrome")
 	}
 	Footer()
 	Menu()
