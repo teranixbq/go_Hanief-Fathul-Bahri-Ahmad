@@ -1,19 +1,25 @@
 package Soal
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 )
 
 func Explorasi() {
-	kata := ""
+
 	reverse := ""
+	alltext := bufio.NewScanner(os.Stdin)
 
 	Clear()
 	fmt.Println("Apakah Palindrome ? ")
 	Line()
 	fmt.Print("Masukkan Kata\t : ")
-	fmt.Scanln(&kata)
+
+	// Membaca baris input dan langsung menggabungkannya ke variabel 'kata'
+	alltext.Scan()
+	kata := alltext.Text()
 
 	for i := len(kata) - 1; i >= 0; i-- {
 		reverse += string(kata[i])
@@ -23,11 +29,12 @@ func Explorasi() {
 	Line()
 
 	switch {
-	case strings.EqualFold(reverse, kata):
-		fmt.Println("\"" + kata + "\" adalah Kata Palindrome")
-	default:
-		fmt.Println("\"" + kata + "\" Bukan Kata Palindrome")
+		case strings.EqualFold(reverse, kata):
+			fmt.Println("\"" + kata + "\" Adalah Kata Palindrome")
+        default:
+			fmt.Println("\"" + kata + "\" Bukan Kata Palindrome")
 	}
+
 	Footer()
 	Menu()
 }
