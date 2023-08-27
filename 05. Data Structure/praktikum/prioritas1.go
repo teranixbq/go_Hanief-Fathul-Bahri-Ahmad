@@ -72,7 +72,6 @@ func Mapping(a []string) map[string]int {
 
 // Soal-3 Prioritas 1
 func munculSekali(angka string) []int {
-
 	datamap := make(map[string]int)
 
 	// Menghitung frekuensi setiap karakter
@@ -81,7 +80,9 @@ func munculSekali(angka string) []int {
 	}
 
 	result := []int{}
-	for key, count := range datamap {
+	for _, dataangka := range angka {
+		key := string(dataangka)
+		count := datamap[key]
 		if count == 1 {
 			num, _ := strconv.Atoi(key)
 			result = append(result, num)
