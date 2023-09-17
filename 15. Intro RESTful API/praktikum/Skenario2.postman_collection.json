@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "d7492509-093e-4572-abee-d6acf1f1be83",
+		"name": "Skenario2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12784836"
+	},
+	"item": [
+		{
+			"name": "GetAllUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/user"
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/user/9"
+			},
+			"response": []
+		},
+		{
+			"name": "AddNewUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\": \"Rudy Sujarwo\",\n  \"age\": 56,\n  \"sex\": \"male\",\n  \"client_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/user"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\": \"Rudy Sujarwono\",\n  \"age\": 57,\n  \"sex\": \"male\",\n  \"client_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/user/1"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/user/1"
+			},
+			"response": []
+		}
+	]
+}

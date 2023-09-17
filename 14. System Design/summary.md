@@ -1,0 +1,9 @@
+### 3 poin yang dipelajari dari materi
+---
+
+1. <div align="justify"><strong>Diagram</strong><p>Diagram adalah representasi visual dari data atau informasi yang digunakan untuk menggambarkan hubungan, struktur, atau aliran proses. Diagram digunakan dalam berbagai konteks, termasuk dalam perencanaan, analisis, perancangan, dan dokumentasi sistem atau konsep. Diagram memiliki berbagai jenis, seperti diagram alir (flowchart), diagram ERD (Entity-Relationship), diagram UML (Unified Modeling Language), Use Case Diagram.</p> </div>
+
+2. <div align="justify"><strong>SQL dan NoSQL</strong><p>SQL (Structured Query Language) dan NoSQL (Not Only SQL) dua jenis sistem manajemen basis data yang memiliki karakteristik dan penggunaan yang berbeda. SQL digunakan untuk basis data relasional, yaitu jenis basis data yang mengorganisir data dalam tabel dengan baris dan kolom yang terstruktur. SQL digunakan untuk mengelola, mengambil, dan memanipulasi data dalam basis data relasional. SQL memiliki aturan yang ketat untuk mengatur integritas data, seperti foreign key, primary key. Sedangkan NoSQL berguna untuk data yang tidak terstruktur. Basis data NoSQL biasanya dapat menangani volume data yang besar serta memungkinkan fleksibilitas dalam mengubah skema data tanpa batasan aturan ketat seperti SQL.</p>
+</div>
+
+3. <div align="justify"><strong>Cache Indexing</strong><p>Cache indexing adalah teknik untuk meningkatkan kinerja aplikasi dengan menyimpan data yang sering digunakan dalam cache yang cepat diakses, sehingga mengurangi waktu akses ke data utama yang lebih lambat. Indexing adalah cara mengurangi latensi dalam aplikasi yang bergantung pada akses ke data. Jika data ada dalam cache, maka aplikasi dapat mengambilnya dengan cepat, menghemat waktu yang seharusnya digunakan untuk mengakses data utama yang lebih lambat.</p></div>
