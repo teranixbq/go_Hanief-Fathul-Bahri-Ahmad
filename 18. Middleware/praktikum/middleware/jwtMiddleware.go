@@ -24,3 +24,14 @@ func CreateToken (user_id int, name string)(string,error){
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString([]byte(constants.JWT_SECRET))
 }
+
+func ExtractToken(e echo.Context) (int, string) {
+	user := e.Get("user").(*jwt.Token)
+	if user.Valid {
+		claims := user.Claims.(jwt.MapClaims)
+		userId := int(claims["user_id"].(float64))
+		name := claims["name"].(string)
+		return userId, name
+	}
+	return 0, ""
+}

@@ -6,6 +6,7 @@ import (
 	"praktikum/rest/database"
 	"praktikum/rest/model"
 	"praktikum/rest/controller/responsejson"
+	"praktikum/rest/middleware"
 	"strconv"
 )
 
@@ -62,12 +63,26 @@ func GetUsersController(c echo.Context) error {
 
 // get user by id
 func GetUserController(c echo.Context) error {
+	userID, name := middleware.ExtractToken(c)
+
+    if userID == 0 || name == "" {
+        return c.JSON(http.StatusUnauthorized, map[string]interface{}{
+            "message": "Unauthorized",
+        })
+    }
+
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
 			"message": "Failed Convert",
 		})
 	}
+
+	if userID != id {
+        return c.JSON(http.StatusForbidden, map[string]interface{}{
+            "message": "Access denied",
+        })
+    }
 
 	response, err := database.SelectById(id)
 	if err != nil {
@@ -101,6 +116,13 @@ func CreateUserController(c echo.Context) error {
 
 // delete user by id
 func DeleteUserController(c echo.Context) error {
+	userID, name := middleware.ExtractToken(c)
+
+    if userID == 0 || name == "" {
+        return c.JSON(http.StatusUnauthorized, map[string]interface{}{
+            "message": "Unauthorized",
+        })
+    }
 
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -108,6 +130,13 @@ func DeleteUserController(c echo.Context) error {
 			"message": "Failed Convert",
 		})
 	}
+
+	if userID != id {
+        return c.JSON(http.StatusForbidden, map[string]interface{}{
+            "message": "Access denied",
+        })
+    }
+
 	err = database.DeleteUser(id)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
@@ -122,17 +151,33 @@ func DeleteUserController(c echo.Context) error {
 
 // update user by id
 func UpdateUserController(c echo.Context) error {
-	updateData := model.User{}
-	if err := c.Bind(&updateData); err != nil {
-		return c.JSON(http.StatusBadRequest, map[string]interface{}{
-			"message": "Invalid Format",
-		})
-	}
+
+
+	userID, name := middleware.ExtractToken(c)
+
+    if userID == 0 || name == "" {
+        return c.JSON(http.StatusUnauthorized, map[string]interface{}{
+            "message": "Unauthorized",
+        })
+    }
 
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
 			"message": "Failed Convert",
+		})
+	}
+
+	if userID != id {
+        return c.JSON(http.StatusForbidden, map[string]interface{}{
+            "message": "Access denied",
+        })
+    }
+	
+	updateData := model.User{}
+	if err := c.Bind(&updateData); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "Invalid Format",
 		})
 	}
 
