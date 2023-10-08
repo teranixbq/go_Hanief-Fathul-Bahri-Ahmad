@@ -1,0 +1,3 @@
+package constant
+
+const JWT_SECRET="dafjuanfjnajefioeqhr83u984y8943y81u490315738rfaeifanf"
