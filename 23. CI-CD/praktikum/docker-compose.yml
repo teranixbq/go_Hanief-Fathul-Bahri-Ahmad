@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: Akunclean03
+      MYSQL_DATABASE: clean
+    ports:
+      - "3306:3306"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    restart: on-failure
+    environment:
+      SERVERPORT: 8080
+      DBHOST: mysql
+      DBPORT: 3306
+      DB_USER: root
+      DB_PASSWORD: Akunclean03
+      DB_NAME: clean
