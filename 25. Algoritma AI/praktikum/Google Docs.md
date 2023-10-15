@@ -1,0 +1,1 @@
+Link Google Docs -> [Tugas Algoritma AI](https://docs.google.com/document/d/1qXlYJfhlXOeAsn0159WunMGkj6k0oJh8B-7l5fvGSd4/edit?usp=sharing)
